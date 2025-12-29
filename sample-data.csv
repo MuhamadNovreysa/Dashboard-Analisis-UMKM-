@@ -1,0 +1,21 @@
+CustomerID,TanggalTransaksi,NilaiTransaksi,KategoriProduk,MetodePembayaran,Usia,Lokasi
+CUST001,2024-01-15,250000,Elektronik,Transfer,28,Jakarta
+CUST002,2024-01-20,150000,Pakaian,Cash,35,Bandung
+CUST003,2024-02-05,500000,Elektronik,Kartu Kredit,42,Surabaya
+CUST004,2024-02-10,75000,Makanan,Transfer,22,Yogyakarta
+CUST005,2024-02-15,300000,Pakaian,Kartu Debit,31,Jakarta
+CUST001,2024-02-20,180000,Elektronik,Transfer,28,Jakarta
+CUST006,2024-03-01,120000,Makanan,Cash,26,Bandung
+CUST002,2024-03-05,95000,Pakaian,Transfer,35,Bandung
+CUST007,2024-03-10,450000,Elektronik,Kartu Kredit,45,Surabaya
+CUST003,2024-03-15,220000,Elektronik,Kartu Kredit,42,Surabaya
+CUST008,2024-03-20,80000,Makanan,Cash,29,Jakarta
+CUST004,2024-03-25,125000,Makanan,Transfer,22,Yogyakarta
+CUST005,2024-04-01,275000,Pakaian,Kartu Debit,31,Jakarta
+CUST009,2024-04-05,600000,Elektronik,Kartu Kredit,38,Bandung
+CUST006,2024-04-10,140000,Makanan,Cash,26,Bandung
+CUST010,2024-04-15,90000,Pakaian,Transfer,33,Surabaya
+CUST007,2024-04-20,320000,Elektronik,Kartu Kredit,45,Surabaya
+CUST001,2024-04-25,210000,Elektronik,Transfer,28,Jakarta
+CUST002,2024-05-01,110000,Pakaian,Cash,35,Bandung
+CUST008,2024-05-05,95000,Makanan,Cash,29,Jakarta
