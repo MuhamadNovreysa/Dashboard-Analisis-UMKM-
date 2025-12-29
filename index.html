@@ -4,86 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Analitik UMKM</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/recharts@2.15.4/umd/Recharts.min.js"></script>
-    <script src="https://unpkg.com/ai@5.0.60/umd/index.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div id="root">
+    <div class="container">
         <!-- Header -->
-        <header class="dashboard-header">
-            <div class="container">
-                <div class="header-content">
-                    <div class="header-left">
-                        <h1>Dashboard Analitik UMKM</h1>
-                        <p>Customer Segmentation dengan K-Means Clustering</p>
-                    </div>
-                    <div class="header-right">
-                        <div class="time-range-selector">
-                            <select id="time-range">
-                                <option value="24h">24 Jam</option>
-                                <option value="7d">7 Hari</option>
-                                <option value="30d" selected>30 Hari</option>
-                                <option value="90d">90 Hari</option>
-                            </select>
-                            <button id="refresh-btn" title="Refresh">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
-                            <button id="download-btn" title="Download">
-                                <i class="fas fa-download"></i>
-                            </button>
-                            <button id="settings-btn" title="Settings">
-                                <i class="fas fa-cog"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <h1>Dashboard Analitik UMKM</h1>
             </div>
+            <nav class="nav">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Beranda</a>
+                <a href="ai-cleaner.html"><i class="fas fa-robot"></i> AI Data Cleaner</a>
+                <a href="analytics.html"><i class="fas fa-chart-pie"></i> Analisis</a>
+            </nav>
         </header>
 
-        <!-- Main Content -->
-        <main class="container">
-            <!-- Data Upload -->
-            <div id="data-upload-container"></div>
-            
-            <!-- Metrics Overview -->
-            <div id="metrics-overview-container" class="metrics-grid"></div>
-            
-            <!-- Performance Charts -->
-            <div class="charts-section">
-                <div id="performance-charts-container"></div>
-                <div id="customer-segmentation-container"></div>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Analisis Pelanggan UMKM Digital</h2>
+                <p>Dashboard interaktif untuk segmentasi pelanggan menggunakan K-Means, RFM, dan CLV.</p>
+                <div class="cta-buttons">
+                    <a href="ai-cleaner.html" class="btn btn-primary">
+                        <i class="fas fa-upload"></i> Mulai dengan Upload Data
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i> Pelajari Fitur
+                    </a>
+                </div>
             </div>
-            
-            <!-- AI Insights -->
-            <div id="ai-insights-container" class="ai-insights-section"></div>
-            
-            <!-- Segment Details -->
-            <div id="segment-details-container"></div>
-            
-            <!-- Advanced Analytics -->
-            <div id="advanced-analytics-container" class="advanced-analytics-section"></div>
-        </main>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Analytics Dashboard">
+            </div>
+        </section>
 
-        <!-- AI Chatbot Modal (hidden by default) -->
-        <div id="ai-chatbot-modal" class="chatbot-modal" style="display: none;">
-            <div class="chatbot-content">
-                <!-- Chatbot will be rendered here -->
+        <!-- Features -->
+        <section id="features" class="features">
+            <h2 class="section-title">Fitur Dashboard</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Data Cleaner</h3>
+                    <p>Bersihkan dan format data transaksi mentah secara otomatis dengan AI.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Analisis RFM & CLV</h3>
+                    <p>Hitung Recency, Frequency, Monetary dan Customer Lifetime Value.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Segmentasi K-Means</h3>
+                    <p>Kelompokkan pelanggan menjadi 4 segmen berdasarkan perilaku transaksi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Rekomendasi AI</h3>
+                    <p>Dapatkan strategi pemasaran berbasis data untuk setiap segmen pelanggan.</p>
+                </div>
             </div>
-        </div>
-        
-        <!-- Segment Detail Modal (hidden by default) -->
-        <div id="segment-detail-modal" class="segment-modal" style="display: none;">
-            <div class="segment-modal-content">
-                <!-- Segment details will be rendered here -->
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="stats">
+            <h2 class="section-title">Alur Sistem</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Upload Data Mentah</h4>
+                    <p>CSV/Excel dari transaksi UMKM</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>AI Cleaning</h4>
+                    <p>Pembersihan & formatting otomatis</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Analisis Data</h4>
+                    <p>RFM, CLV, K-Means Clustering</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Visualisasi & Insight</h4>
+                    <p>Dashboard interaktif + rekomendasi</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 Dashboard Analitik UMKM | Skripsi - Muhammad Novreysa</p>
+            <p>Universitas Pelita Bangsa</p>
+        </footer>
     </div>
 
-    <script src="data-store.js"></script>
-    <script src="data-processor.js"></script>
-    <script src="components.js"></script>
-    <script src="main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
