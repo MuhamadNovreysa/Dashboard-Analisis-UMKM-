@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Cleaner - Dashboard UMKM</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <h1>AI Data Cleaner</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html"><i class="fas fa-home"></i> Beranda</a>
+                <a href="ai-cleaner.html" class="active"><i class="fas fa-robot"></i> AI Data Cleaner</a>
+                <a href="analytics.html"><i class="fas fa-chart-pie"></i> Analisis</a>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="ai-cleaner">
+            <div class="upload-section">
+                <h2><i class="fas fa-upload"></i> Upload Data Transaksi Mentah</h2>
+                <p>Upload file CSV/Excel berisi data transaksi pelanggan UMKM Anda.</p>
+                
+                <div class="upload-box" id="uploadBox">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Seret & Lepas file di sini</h3>
+                    <p>atau</p>
+                    <input type="file" id="fileInput" accept=".csv,.xlsx,.xls">
+                    <label for="fileInput" class="btn btn-primary">
+                        <i class="fas fa-folder-open"></i> Pilih File
+                    </label>
+                    <p class="file-types">Format yang didukung: CSV, Excel</p>
+                </div>
+
+                <div class="data-info">
+                    <h3><i class="fas fa-info-circle"></i> Struktur Data yang Diperlukan:</h3>
+                    <ul>
+                        <li><strong>Customer ID:</strong> Identifikasi unik pelanggan</li>
+                        <li><strong>Tanggal Transaksi:</strong> Format DD/MM/YYYY atau YYYY-MM-DD</li>
+                        <li><strong>Nilai Transaksi:</strong> Jumlah pembelian (angka)</li>
+                        <li><strong>Kategori Produk:</strong> Kategori produk yang dibeli</li>
+                        <li><strong>Metode Pembayaran:</strong> Cash, Transfer, Kartu, dll</li>
+                        <li><strong>Usia Customer:</strong> Usia pelanggan (angka)</li>
+                        <li><strong>Lokasi:</strong> Kota/daerah pelanggan</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- AI Processing Section -->
+            <div class="processing-section" id="processingSection" style="display: none;">
+                <h2><i class="fas fa-cogs"></i> Proses Pembersihan AI</h2>
+                <div class="process-steps">
+                    <div class="process-step active">
+                        <div class="step-icon">
+                            <i class="fas fa-file-import"></i>
+                        </div>
+                        <h4>Membaca Data</h4>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h4>Membersihkan Format</h4>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Validasi Data</h4>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <div class="results-section" id="resultsSection" style="display: none;">
+                    <h3><i class="fas fa-check-circle"></i> Data Telah Dibersihkan!</h3>
+                    <div class="preview-table">
+                        <table id="dataPreview">
+                            <thead>
+                                <tr>
+                                    <th>Customer ID</th>
+                                    <th>Tanggal</th>
+                                    <th>Nilai</th>
+                                    <th>Kategori</th>
+                                    <th>Pembayaran</th>
+                                    <th>Usia</th>
+                                    <th>Lokasi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="previewBody">
+                                <!-- Data akan diisi oleh JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="downloadBtn" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Download Dataset Bersih (CSV)
+                        </button>
+                        <button id="proceedBtn" class="btn btn-success">
+                            <i class="fas fa-arrow-right"></i> Lanjut ke Analisis
+                        </button>
+                        <button id="reuploadBtn" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i> Upload Ulang Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 AI Data Cleaner | Dashboard Analitik UMKM</p>
+        </footer>
+    </div>
+
+    <script src="ai-cleaner.js"></script>
+</body>
+</html>
